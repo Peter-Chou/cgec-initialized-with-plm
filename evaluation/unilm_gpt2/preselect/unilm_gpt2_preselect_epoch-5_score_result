@@ -1,0 +1,5 @@
+start segment file: /evaluation/unilm_gpt2/preselect/unilm_gpt2_preselect_epoch-5.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.2874
+Recall      : 0.2589
+F_0.5       : 0.2812

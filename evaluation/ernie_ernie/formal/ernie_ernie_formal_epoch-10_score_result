@@ -1,0 +1,5 @@
+start segment file: /evaluation/ernie_ernie/formal/ernie_ernie_formal_epoch-10.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.4775
+Recall      : 0.2635
+F_0.5       : 0.4108

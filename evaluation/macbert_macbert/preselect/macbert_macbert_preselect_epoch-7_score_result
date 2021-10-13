@@ -1,0 +1,5 @@
+start segment file: /evaluation/macbert_macbert/preselect/macbert_macbert_preselect_epoch-7.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.3257
+Recall      : 0.2385
+F_0.5       : 0.3035

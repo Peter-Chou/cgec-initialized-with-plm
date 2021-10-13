@@ -1,0 +1,5 @@
+start segment file: /evaluation/bart/preselect/bart_preselect_epoch-3.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.3718
+Recall      : 0.2443
+F_0.5       : 0.3366

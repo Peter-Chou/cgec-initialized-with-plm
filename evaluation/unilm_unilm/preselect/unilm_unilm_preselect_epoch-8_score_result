@@ -1,0 +1,5 @@
+start segment file: /evaluation/unilm_unilm/preselect/unilm_unilm_preselect_epoch-8.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.3103
+Recall      : 0.2346
+F_0.5       : 0.2915

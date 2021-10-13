@@ -1,0 +1,5 @@
+start segment file: /evaluation/wobert_wobert/preselect/wobert_wobert_preselect_epoch-7.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.3062
+Recall      : 0.2675
+F_0.5       : 0.2976

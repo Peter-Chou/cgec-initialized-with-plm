@@ -1,0 +1,5 @@
+start segment file: /evaluation/t5/preselect/t5_preselect_epoch-4.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.3919
+Recall      : 0.2526
+F_0.5       : 0.3530

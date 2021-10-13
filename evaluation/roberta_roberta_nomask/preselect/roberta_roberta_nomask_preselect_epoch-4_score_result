@@ -1,0 +1,5 @@
+start segment file: /evaluation/roberta_roberta_nomask/preselect/roberta_roberta_nomask_preselect_epoch-4.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.2976
+Recall      : 0.2007
+F_0.5       : 0.2714

@@ -1,0 +1,5 @@
+start segment file: /evaluation/macbert_gpt2/preselect/macbert_gpt2_preselect_epoch-6.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.2989
+Recall      : 0.2796
+F_0.5       : 0.2948

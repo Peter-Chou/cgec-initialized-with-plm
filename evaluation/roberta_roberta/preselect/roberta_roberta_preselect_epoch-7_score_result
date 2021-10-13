@@ -1,0 +1,5 @@
+start segment file: /evaluation/roberta_roberta/preselect/roberta_roberta_preselect_epoch-7.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.3286
+Recall      : 0.2462
+F_0.5       : 0.3080

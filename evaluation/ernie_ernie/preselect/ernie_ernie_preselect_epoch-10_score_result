@@ -1,0 +1,5 @@
+start segment file: /evaluation/ernie_ernie/preselect/ernie_ernie_preselect_epoch-10.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.3471
+Recall      : 0.2592
+F_0.5       : 0.3250

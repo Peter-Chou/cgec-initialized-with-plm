@@ -1,0 +1,5 @@
+start segment file: /evaluation/wobert_gpt2/preselect/wobert_gpt2_preselect_epoch-8.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.2816
+Recall      : 0.3014
+F_0.5       : 0.2853

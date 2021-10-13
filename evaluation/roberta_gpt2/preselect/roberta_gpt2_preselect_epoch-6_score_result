@@ -1,0 +1,5 @@
+start segment file: /evaluation/roberta_gpt2/preselect/roberta_gpt2_preselect_epoch-6.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.2973
+Recall      : 0.2780
+F_0.5       : 0.2932

@@ -1,0 +1,5 @@
+start segment file: /evaluation/t5/formal/t5_formal_epoch-4.txt
+start evaluate segmented test file with gold standard annotation
+Precision   : 0.4411
+Recall      : 0.2804
+F_0.5       : 0.3958

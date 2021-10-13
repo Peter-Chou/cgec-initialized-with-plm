@@ -1,0 +1,9 @@
+# Ignore everything:
+#/*
+# Except for the themes directories:
+#/**/*_score_result
+#/**/*_segmented.txt
+
+**/*_segmented.txt
+**/*.temp
+!.gitignore
