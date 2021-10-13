@@ -101,11 +101,12 @@ docker run --rm --user $(id -u):$(id -g) \
 
 | model name            |   P   |   R   | <img src="https://latex.codecogs.com/svg.image?\inline&space;\mathbf{F_{0.5}}" title="\inline \mathbf{F_{0.5}}" height=13 /> |
 | --------------------- | :---: | :---: | :----------------------------------------------------------: |
-| MacBERT_MacBERT       | 32.57 | 23.85 |                            30.35                             |
-| UniLM_UniLM           | 31.03 | 23.46 |                            29.15                             |
-| WoBERT_WoBERT         | 30.62 | 26.75 |                            29.76                             |
-| ERNIE_ERNIE           | 34.71 | 25.92 |                            32.50                             |
 | **ERNIE_ERNIE_share** | 35.42 | 24.78 |                          **32.62**                           |
+| ERNIE_ERNIE           | 34.71 | 25.92 |                            32.50                             |
+| RoBERTa_RoBERTa       | 32.86 | 24.62 |                            30.80                             |
+| MacBERT_MacBERT       | 32.57 | 23.85 |                            30.35                             |
+| WoBERT_WoBERT         | 30.62 | 26.75 |                            29.76                             |
+| UniLM_UniLM           | 31.03 | 23.46 |                            29.15                             |
 
 #### 使用decoder同构分别初始化Transformer方法的模型表现
 
