@@ -2,13 +2,18 @@
 
 ## 环境准备
 
-Python版本=3.8
+### 模型训练/测试环境准备
+
+Python版本：3.8
 
 ``` bash
+# 在项目根目录下运行
 pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 其中 torch==1.7.1+cu101, transformers==4.3.3, pypinyin==0.40.0, jieba==0.42.1, sentencepiece==0.1.95
+
+### 模型评估环境准备
 
 下载评估模型所需的docker镜像
 
@@ -19,6 +24,7 @@ docker pull zhou00009/m2scorer-chinese:1.1.0
 或者可以手工构建该镜像，两者选其一
 
 ``` bash
+# 在项目根目录下运行
 cd ./docker
 docker build -t zhou00009/m2scorer-chinese:1.1.0 -f m2scorer-chinese.dockerfile .
 ```
@@ -26,45 +32,36 @@ docker build -t zhou00009/m2scorer-chinese:1.1.0 -f m2scorer-chinese.dockerfile 
 ## 下载数据
 
 ``` bash
+# 在项目根目录下运行
 python download_data.py
 ```
 
 ## 数据预处理
 
 ``` bash
-# 在根目录下
+# 在项目根目录下运行
 python preprocess_data.py
 ```
 
 ## 训练模型
 
-### 初次筛选阶段
-
 ``` bash
-# 在根目录下
-model_name=model_name_you_select
-stage=preselect
-./scripts/train_model.sh --mode=${stage} --model_name=${model_name}
-```
-
-### 正式训练阶段
-
-``` bash
-# 在根目录下
-model_name=model_name_you_select
-stage=formal
+# 模型训练(初筛阶段/正式训练阶段)
+model_name=model_name_you_select  # e.g. roberta_roberta
+stage=stage_of_your_model  # stage 可以是 preselect / formal
+# 在项目根目录下运行
 ./scripts/train_model.sh --mode=${stage} --model_name=${model_name}
 ```
 
 ## 模型评估
 
-### 得到模型在测试集上的预测
+### 获得模型在测试集上的预测结果
 
 ``` bash
-# 在根目录下
 model_name=model_name_you_select
-stage=formal # 或者 preselect
+stage=stage_of_your_model
 epoch_num=best_ckpt_folder_name  # e.g. epoch-6, epoch-10
+# 在项目根目录下运行
 ./scripts/eval_model.sh --model_name=${model_name} --mode=${stage} --ckpt=${epoch_num}
 ```
 
@@ -73,15 +70,18 @@ epoch_num=best_ckpt_folder_name  # e.g. epoch-6, epoch-10
 ### 评估模型
 
 ``` bash
-# 在根目录下
-model_name=roberta_roberta_share
-stage=formal
-epoch_num=epoch-10
+model_name=model_name_you_select
+stage=stage_of_your_model
+epoch_num=best_ckpt_folder_name
+# 在项目根目录下运行
 docker run --rm --user $(id -u):$(id -g) \
 	--mount type=bind,source=`pwd`/evaluation,target=/evaluation \
 	-t zhou00009/m2scorer-chinese:1.1.0 \
 	evaluation/${model_name}/${stage}/${model_name}_${stage}_${epoch_num}.txt
 ```
+
+模型在测试集上表现的评估结果会在`./evaluation/${model_name}/${stage}/${model_name}_${stage}_${epoch_num}_score_result`文件里。
+
 
 ## 实验结果
 
@@ -97,7 +97,7 @@ docker run --rm --user $(id -u):$(id -g) \
 
 
 
-#### 相同结构预训练语言模型分别初始化Transformer
+#### 使用decoder异构分别初始化Transformer方法的模型表现
 
 | model name            |   P   |   R   | <img src="https://latex.codecogs.com/svg.image?\inline&space;\mathbf{F_{0.5}}" title="\inline \mathbf{F_{0.5}}" height=13 /> |
 | --------------------- | :---: | :---: | :----------------------------------------------------------: |
@@ -107,7 +107,7 @@ docker run --rm --user $(id -u):$(id -g) \
 | ERNIE_ERNIE           | 34.71 | 25.92 |                            32.50                             |
 | **ERNIE_ERNIE_share** | 35.42 | 24.78 |                          **32.62**                           |
 
-#### 不同结构预训练语言模型分别初始化Transformer
+#### 使用decoder同构分别初始化Transformer方法的模型表现
 
 | model name       |   P   |   R   | <img src="https://latex.codecogs.com/svg.image?\inline&space;\mathbf{F_{0.5}}" title="\inline \mathbf{F_{0.5}}" height=13 /> |
 | ---------------- | :---: | :---: | :----------------------------------------------------------: |
@@ -117,7 +117,7 @@ docker run --rm --user $(id -u):$(id -g) \
 | WoBERT_GPT2      | 28.16 | 30.14 |                            28.53                             |
 | UniLM_GPT2       | 28.74 | 25.89 |                            28.12                             |
 
-#### 预训练语言模型直接初始化Transformer
+#### 使用直接初始化Transformer方法到模型表现
 
 | model name |   P   |   R   | <img src="https://latex.codecogs.com/svg.image?\inline&space;\mathbf{F_{0.5}}" title="\inline \mathbf{F_{0.5}}" height=13 /> |
 | ---------- | :---: | :---: | :----------------------------------------------------------: |
