@@ -8,7 +8,7 @@ Python版本：3.8
 
 ``` bash
 # 在项目根目录下运行
-pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
+pip install -r requirements.txt
 ```
 
 其中 torch==1.7.1+cu101, transformers==4.3.3, pypinyin==0.40.0, jieba==0.42.1, sentencepiece==0.1.95
